@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Music Hub</title><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#ffdce8;
+min-height:100vh;
+position:relative;
+overflow-x:hidden;
+}
+
+/* Green leaves */
+
+.leaf{
+position:fixed;
+font-size:70px;
+color:#6aaa64;
+opacity:0.75;
+z-index:0;
+}
+
+.leaf1{
+top:20px;
+left:-10px;
+transform:rotate(-25deg);
+}
+
+.leaf2{
+top:120px;
+right:-15px;
+transform:rotate(25deg);
+}
+
+.leaf3{
+bottom:20px;
+left:-15px;
+transform:rotate(20deg);
+}
+
+.leaf4{
+bottom:100px;
+right:-10px;
+transform:rotate(-20deg);
+}
+
+/* Navigation */
+
+.navbar{
+background:#ffffff;
+padding:18px 15px;
+text-align:center;
+position:relative;
+z-index:2;
+box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
+
+.navbar h1{
+color:#4d8050;
+margin-bottom:12px;
+}
+
+.nav-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.nav-links a{
+text-decoration:none;
+background:#c9e8c5;
+color:#315b35;
+padding:8px 13px;
+border-radius:20px;
+font-size:14px;
+font-weight:bold;
+}
+
+/* Main */
+
+.home-box{
+position:relative;
+z-index:1;
+background:white;
+width:90%;
+max-width:700px;
+margin:55px auto;
+padding:35px 25px;
+border-radius:30px;
+box-shadow:0 12px 35px rgba(80,120,80,0.18);
+border:4px solid #e5f3df;
+text-align:center;
+}
+
+.home-box h2{
+font-size:34px;
+color:#4d8050;
+margin-bottom:10px;
+}
+
+.tagline{
+font-size:19px;
+font-weight:bold;
+color:#e48ba8;
+margin-bottom:25px;
+}
+
+.intro{
+color:#555;
+font-size:16px;
+line-height:1.7;
+margin-bottom:22px;
+}
+
+/* Search */
+
+.search-box{
+margin:25px auto;
+}
+
+.search-box input{
+width:90%;
+max-width:450px;
+padding:12px 15px;
+border:2px solid #c9e8c5;
+border-radius:20px;
+outline:none;
+font-size:15px;
+background:#fff0f5;
+}
+
+.search-box input:focus{
+border-color:#4d8050;
+}
+
+/* Categories */
+
+.categories{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:25px;
+}
+
+.category{
+width:145px;
+background:#fff0f5;
+padding:20px 10px;
+border-radius:20px;
+border:3px solid #e5f3df;
+box-shadow:0 5px 15px rgba(80,120,80,0.10);
+}
+
+.category h3{
+color:#4d8050;
+font-size:18px;
+margin-bottom:12px;
+}
+
+.category button{
+border:none;
+background:#c9e8c5;
+color:#315b35;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.category button:hover{
+background:#b4dcae;
+}
+
+/* Message */
+
+#message{
+margin-top:25px;
+color:#777;
+font-size:14px;
+}
+
+/* Footer */
+
+footer{
+position:relative;
+z-index:1;
+text-align:center;
+padding:20px;
+color:#4d8050;
+font-size:14px;
+}
+
+</style></head><body><div class="leaf leaf1">🌿</div><div class="leaf leaf2">🌿</div><div class="leaf leaf3">🌿</div><div class="leaf leaf4">🌿</div><header class="navbar"><h1>Music Hub</h1><nav class="nav-links"><a href="index.html">Home</a>
+
+<a href="kpop.html">K-Pop</a>
+
+<a href="anime.html">Anime Songs</a>
+
+<a href="pop.html">Pop</a>
+
+<a href="gaming.html">Gaming</a>
+
+<a href="about.html">About</a>
+
+</nav></header><main><section class="home-box"><h2>Welcome to Music Hub</h2><p class="tagline">
+Your vibe. Your music. Your hub.
+</p><p class="intro">
+Discover music, explore different genres and find songs that match your vibe.
+</p><div class="search-box"><input
+type="text"
+id="searchInput"
+placeholder="Search a category..."
+onkeyup="searchMusic()"
+
+«»
+
+</div><div class="categories"><div class="category"><h3>K-Pop</h3><button onclick="openPage('kpop.html')">
+Explore
+</button></div><div class="category"><h3>Anime Songs</h3><button onclick="openPage('anime.html')">
+Explore
+</button></div><div class="category"><h3>Pop</h3><button onclick="openPage('pop.html')">
+Explore
+</button></div><div class="category"><h3>Gaming</h3><button onclick="openPage('gaming.html')">
+Explore
+</button></div></div><p id="message">
+Pick a category and start exploring.
+</p></section></main><footer>Music Hub | Your vibe. Your music. Your hub.
+
+</footer><script>
+
+function openPage(page){
+
+window.location.href=page;
+
+}
+
+
+function searchMusic(){
+
+let input=document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+
+if(input===""){
+
+document.getElementById("message").textContent=
+"Pick a category and start exploring.";
+
+return;
+
+}
+
+
+if(input.includes("kpop") || input.includes("k-pop")){
+
+window.location.href="kpop.html";
+
+}
+
+else if(input.includes("anime")){
+
+window.location.href="anime.html";
+
+}
+
+else if(input==="pop" || input.includes("pop music")){
+
+window.location.href="pop.html";
+
+}
+
+else if(input.includes("gaming")){
+
+window.location.href="gaming.html";
+
+}
+
+else{
+
+document.getElementById("message").textContent=
+"No category found. Try K-Pop, Anime Songs, Pop or Gaming.";
+
+}
+
+}
+
+</script></body></html>

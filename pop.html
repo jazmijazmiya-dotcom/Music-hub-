@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pop - Music Hub</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#ffdce8;
+min-height:100vh;
+position:relative;
+overflow-x:hidden;
+}
+
+/* Green leaves */
+
+.leaf{
+position:fixed;
+font-size:70px;
+color:#6aaa64;
+opacity:0.75;
+z-index:0;
+}
+
+.leaf1{
+top:20px;
+left:-10px;
+transform:rotate(-25deg);
+}
+
+.leaf2{
+top:120px;
+right:-15px;
+transform:rotate(25deg);
+}
+
+.leaf3{
+bottom:20px;
+left:-15px;
+transform:rotate(20deg);
+}
+
+.leaf4{
+bottom:100px;
+right:-10px;
+transform:rotate(-20deg);
+}
+
+/* Navigation */
+
+.navbar{
+background:#ffffff;
+padding:18px 15px;
+text-align:center;
+position:relative;
+z-index:2;
+box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
+
+.navbar h1{
+color:#4d8050;
+margin-bottom:12px;
+}
+
+.nav-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.nav-links a{
+text-decoration:none;
+background:#c9e8c5;
+color:#315b35;
+padding:8px 13px;
+border-radius:20px;
+font-size:14px;
+font-weight:bold;
+}
+
+/* Main */
+
+.pop-box{
+position:relative;
+z-index:1;
+background:white;
+width:90%;
+max-width:700px;
+margin:35px auto;
+padding:25px 20px;
+border-radius:30px;
+box-shadow:0 12px 35px rgba(80,120,80,0.18);
+border:4px solid #e5f3df;
+}
+
+/* Music Player */
+
+.player-box{
+background:#fff0f5;
+padding:15px;
+border-radius:20px;
+margin-bottom:20px;
+border:2px solid #e5f3df;
+text-align:center;
+}
+
+.player-box iframe{
+width:100%;
+height:220px;
+border:none;
+border-radius:15px;
+display:block;
+}
+
+#nowPlaying{
+color:#4d8050;
+font-weight:bold;
+font-size:14px;
+margin-top:10px;
+}
+
+/* Search */
+
+.search-box{
+text-align:center;
+margin-bottom:20px;
+}
+
+.search-box input{
+width:90%;
+padding:11px 16px;
+border:2px solid #c9e8c5;
+border-radius:20px;
+outline:none;
+font-size:14px;
+color:#555;
+}
+
+.search-box input:focus{
+border-color:#6aaa64;
+}
+
+/* Artist */
+
+.artist{
+margin-bottom:22px;
+}
+
+.artist h2{
+font-size:22px;
+color:#4d8050;
+margin-bottom:10px;
+}
+
+/* Songs */
+
+.song{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#fff0f5;
+padding:10px 12px;
+margin:7px 0;
+border-radius:15px;
+border:2px solid #f6dce6;
+}
+
+.song-name{
+color:#555;
+font-size:14px;
+}
+
+.play-btn{
+background:#c9e8c5;
+color:#315b35;
+border:none;
+padding:7px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.play-btn:hover{
+background:#b5dcb0;
+}
+
+/* Footer */
+
+footer{
+position:relative;
+z-index:1;
+text-align:center;
+padding:20px;
+color:#4d8050;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Green leaves -->
+
+<div class="leaf leaf1">🌿</div>
+<div class="leaf leaf2">🌿</div>
+<div class="leaf leaf3">🌿</div>
+<div class="leaf leaf4">🌿</div>
+
+
+<!-- Navigation -->
+
+<header class="navbar">
+
+<h1>Music Hub</h1>
+
+<nav class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="kpop.html">K-Pop</a>
+<a href="anime.html">Anime Songs</a>
+<a href="pop.html">Pop</a>
+<a href="gaming.html">Gaming</a>
+<a href="about.html">About</a>
+
+</nav>
+
+</header>
+
+
+<!-- Pop -->
+
+<main>
+
+<section class="pop-box">
+
+
+<!-- Music Player -->
+
+<div class="player-box">
+
+<iframe
+id="musicPlayer"
+src=""
+title="Music Player"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
+
+<p id="nowPlaying">Select a song to play</p>
+
+</div>
+
+
+<!-- Search -->
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="Search songs or artists..."
+onkeyup="searchSongs()">
+
+</div>
+
+
+<!-- Justin Bieber -->
+
+<div class="artist">
+
+<h2>Justin Bieber</h2>
+
+<div class="song">
+<span class="song-name">Beauty And A Beat</span>
+<button class="play-btn"
+onclick="playSong('Ys7-6_t7OEQ','Beauty And A Beat')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Stay</span>
+<button class="play-btn"
+onclick="playSong('kTJczUoc26U','Stay')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Ghost</span>
+<button class="play-btn"
+onclick="playSong('Fp8msa5uYsc','Ghost')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Never Say Never</span>
+<button class="play-btn"
+onclick="playSong('_Z5-P9v3F8w','Never Say Never')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Company</span>
+<button class="play-btn"
+onclick="playSong('gdx7gN1UyX0','Company')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">What Do You Mean?</span>
+<button class="play-btn"
+onclick="playSong('DK_0jXPuIr0','What Do You Mean?')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Love Me</span>
+<button class="play-btn"
+onclick="playSong('qdDVtFvJwUc','Love Me')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Sorry</span>
+<button class="play-btn"
+onclick="playSong('fRh_vgS2dFE','Sorry')">
+Play
+</button>
+</div>
+
+</div>
+
+
+<!-- Billie Eilish -->
+
+<div class="artist">
+
+<h2>Billie Eilish</h2>
+
+<div class="song">
+<span class="song-name">Birds of a Feather</span>
+<button class="play-btn"
+onclick="playSong('V9PVRfjEBTI','Birds of a Feather')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">lovely</span>
+<button class="play-btn"
+onclick="playSong('V1Pl8CzNzCw','lovely')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">bad guy</span>
+<button class="play-btn"
+onclick="playSong('DyDfgMOUjCI','bad guy')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">bury a friend</span>
+<button class="play-btn"
+onclick="playSong('HUHC9tYz8ik','bury a friend')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">No Time To Die</span>
+<button class="play-btn"
+onclick="playSong('BboMpayJomw','No Time To Die')">
+Play
+</button>
+</div>
+
+</div>
+
+
+<!-- Taylor Swift -->
+
+<div class="artist">
+
+<h2>Taylor Swift</h2>
+
+<div class="song">
+<span class="song-name">Blank Space</span>
+<button class="play-btn"
+onclick="playSong('e-ORhEE9VVg','Blank Space')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Love Story</span>
+<button class="play-btn"
+onclick="playSong('8xg3vE8Ie_E','Love Story')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Cruel Summer</span>
+<button class="play-btn"
+onclick="playSong('ic8j13piAhQ','Cruel Summer')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">cardigan</span>
+<button class="play-btn"
+onclick="playSong('K-a8s8OLBSE','cardigan')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">...Ready For It?</span>
+<button class="play-btn"
+onclick="playSong('wIft-t-MQuE','...Ready For It?')">
+Play
+</button>
+</div>
+
+</div>
+
+
+<!-- Alan Walker -->
+
+<div class="artist">
+
+<h2>Alan Walker</h2>
+
+<div class="song">
+<span class="song-name">Faded</span>
+<button class="play-btn"
+onclick="playSong('60ItHLz5WEA','Faded')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Darkside</span>
+<button class="play-btn"
+onclick="playSong('M-P4QBt-FWw','Darkside')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Alone, Pt. II</span>
+<button class="play-btn"
+onclick="playSong('HhjHYkPQ8F0','Alone, Pt. II')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Who I Am</span>
+<button class="play-btn"
+onclick="playSong('ccu6JuC21rk','Who I Am')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Sing Me to Sleep</span>
+<button class="play-btn"
+onclick="playSong('2i2khp_npdE','Sing Me to Sleep')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Different World</span>
+<button class="play-btn"
+onclick="playSong('m-PJmmvyP10','Different World')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Lily</span>
+<button class="play-btn"
+onclick="playSong('hdonNbzHHXE','Lily')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">Paradise</span>
+<button class="play-btn"
+onclick="playSong('stURztsCOZs','Paradise')">
+Play
+</button>
+</div>
+
+<div class="song">
+<span class="song-name">On My Way</span>
+<button class="play-btn"
+onclick="playSong('dhYOPzcsbGM','On My Way')">
+Play
+</button>
+</div>
+
+</div>
+
+
+<!-- ZAYN -->
+
+<div class="artist">
+
+<h2>ZAYN</h2>
+
+<div class="song">
+<span class="song-name">Dusk Till Dawn</span>
+<button class="play-btn"
+onclick="playSong('tt2k8PGm-TI','Dusk Till Dawn')">
+Play
+</button>
+</div>
+
+</div>
+
+
+<!-- The Weeknd -->
+
+<div class="artist">
+
+<h2>The Weeknd</h2>
+
+<div class="song">
+<span class="song-name">Timeless</span>
+<button class="play-btn"
+onclick="playSong('16jA-6hiSUo','Timeless')">
+Play
+</button>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+Music Hub | Your vibe. Your music. Your hub.
+</footer>
+
+
+<!-- JavaScript -->
+
+<script>
+
+function playSong(videoId, songName){
+
+const player =
+document.getElementById("musicPlayer");
+
+player.src =
+"https://www.youtube.com/embed/" +
+videoId +
+"?autoplay=1";
+
+document.getElementById("nowPlaying").textContent =
+"Now playing: " + songName;
+
+}
+
+
+function searchSongs(){
+
+const input =
+document.getElementById("search").value.toLowerCase();
+
+const artists =
+document.querySelectorAll(".artist");
+
+artists.forEach(function(artist){
+
+const text =
+artist.innerText.toLowerCase();
+
+if(text.includes(input)){
+
+artist.style.display="block";
+
+}else{
+
+artist.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
